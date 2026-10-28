@@ -1,1 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Humaida Danjuma Khalid | Research & Data Analytics</title>
+
+  <meta name="description" content="The portfolio of Humaida Danjuma Khalid, showcasing public health research, data analytics, and health systems work.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #111411;
+      --surface: #191e19;
+      --surface-light: #222922;
+      --text: #f3f0e8;
+      --muted: #aaaFA6;
+      --green: #a4bd9b;
+      --border: rgba(243, 240, 232, 0.12);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 88px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .contact-link {
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 3px;
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 70px;
+      padding: 105px 0 115px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.76rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.7vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      font-size: 0.88rem;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: #111411;
+    }
+
+    .button-primary:hover {
+      background: #c1d3b9;
+    }
+
+    .button-secondary:hover {
+      background: var(--surface);
+    }
+
+    .portrait-frame {
+      position: relative;
+      min-height: 440px;
+      background:
+        radial-gradient(ellipse at 50% 35%, #344435 0%, #20291f 48%, #171c17 100%);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .portrait-placeholder {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .portrait-monogram {
+      width: 135px;
+      height: 135px;
+      margin: 0 auto 22px;
+      border: 1px solid rgba(164, 189, 155, 0.55);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 2.7rem;
+    }
+
+    .portrait-placeholder p {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .portrait-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 20px;
+      color: var(--green);
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 30px;
+      min-height: 255px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(164, 189, 155, 0.55);
+    }
+
+    .project-number {
+      color: var(--green);
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 28px;
+    }
+
+    .project-card h3 {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-type {
+      display: inline-block;
+      color: var(--green);
+      font-size: 0.74rem;
+      margin-top: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .about-content {
+      max-width: 760px;
+    }
+
+    .about-content h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 25px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 75px 0;
+    }
+
+    .contact-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .contact-section p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        padding: 22px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px 20px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 70px 0 80px;
+      }
+
+      .portrait-frame {
+        min-height: 340px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        font-size: 0.8rem;
+      }
+
+      .portrait-frame {
+        min-height: 300px;
+      }
+
+      .project-card {
+        padding: 24px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#" class="brand">HDK<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research & Writing</a></li>
+        <li><a href="#contact" class="contact-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Public Health · Research · Data</p>
+
+        <h1>
+          Humaida<br>
+          Danjuma <span>Khalid.</span>
+        </h1>
+
+        <p class="hero-description">
+          I work at the intersection of public health research,
+          data analysis, and health systems, turning information
+          into insights that support better decisions.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="button button-primary">
+            Explore My Work
+          </a>
+
+          <a href="#about" class="button button-secondary">
+            More About Me
+          </a>
+        </div>
+      </div>
+
+      <div class="portrait-frame">
+        <div class="portrait-placeholder">
+          <div class="portrait-monogram">HDK</div>
+          <p>Your profile photograph will go here.</p>
+        </div>
+
+        <span class="portrait-caption">Research · Evidence · Impact</span>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Selected Work<span style="color: var(--green);">.</span></h2>
+
+          <p>
+            Research and analytical work exploring health,
+            access to care, and the practical use of data.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="project-card">
+            <p class="project-number">PROJECT 01</p>
+            <h3>Non-Communicable Disease Prevention</h3>
+            <p>
+              Exploring awareness, knowledge, and preventive
+              practices among adults in Jos Metropolis.
+            </p>
+            <span class="project-type">PUBLIC HEALTH RESEARCH</span>
+          </article>
+
+          <article class="project-card">
+            <p class="project-number">PROJECT 02</p>
+            <h3>Healthcare Financing & Primary Care</h3>
+            <p>
+              Examining household healthcare expenditure,
+              access to services, and primary healthcare delivery
+              across the FCT.
+            </p>
+            <span class="project-type">HEALTH SYSTEMS</span>
+          </article>
+
+          <article class="project-card">
+            <p class="project-number">PROJECT 03</p>
+            <h3>Health Data Analysis</h3>
+            <p>
+              A practical data project focused on data quality,
+              analysis, and communicating useful findings.
+            </p>
+            <span class="project-type">DATA ANALYTICS</span>
+          </article>
+
+          <article class="project-card">
+            <p class="project-number">PROJECT 04</p>
+            <h3>Workplace Stress & Mental Wellbeing</h3>
+            <p>
+              Research exploring work-related stress and mental
+              wellbeing among community health extension workers.
+            </p>
+            <span class="project-type">RESEARCH & STATISTICS</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-content">
+        <p class="eyebrow">A little about me</p>
+
+        <h2>Curious about the evidence behind better decisions.</h2>
+
+        <p>
+          My background in microbiology and postgraduate training
+          in public health have shaped my interest in research,
+          data, and the systems that influence health outcomes.
+        </p>
+
+        <p>
+          I enjoy working with data, asking meaningful questions,
+          and presenting findings in ways that people can understand
+          and use.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Research & Writing<span style="color: var(--green);">.</span></h2>
+
+          <p>
+            A growing collection of research, analytical work,
+            and written contributions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+
+        <h2>Let's connect.</h2>
+
+        <p>
+          Open to conversations around public health research,
+          data analysis, and meaningful collaborations.
+        </p>
+
+        <a href="mailto:danjumahumaida@gmail.com"
+           class="button button-primary">
+          Send Me an Email
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 Humaida Danjuma Khalid</span>
+      <span>Research · Data · Health Systems</span>
+    </div>
+  </footer>
+
+</body>
+</html>
