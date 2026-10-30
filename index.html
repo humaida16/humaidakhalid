@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Humaida Danjuma Khalid | Public Health Research & Data Analytics</title>
-<meta name="description" content="Humaida Danjuma Khalid works across public health research, data analytics, health systems and evidence-based decision-making.">
+<title>Humaida Danjuma Khalid | Portfolio</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +18,7 @@
   --muted: #c7b8ab;
   --blush: #d9a6a0;
   --champagne: #d8c19a;
-  --border: rgba(245,238,227,.13);
+  --border: rgba(245,238,227,.15);
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
   --handwritten: "Caveat", cursive;
@@ -44,7 +42,7 @@ body {
   line-height: 1.7;
 }
 
-body.panel-open {
+body.modal-open {
   overflow: hidden;
 }
 
@@ -55,17 +53,16 @@ a {
 
 button {
   font: inherit;
-  -webkit-tap-highlight-color: transparent;
-}
-
-img {
-  display: block;
-  max-width: 100%;
 }
 
 .container {
   width: min(1160px, 89%);
   margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
 }
 
 .eyebrow {
@@ -77,40 +74,12 @@ img {
   margin-bottom: 20px;
 }
 
-.section {
-  padding: 100px 0;
-  border-top: 1px solid var(--border);
-}
-
-.section-heading {
-  max-width: 700px;
-  margin-bottom: 45px;
-}
-
-.section-heading h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(2.3rem,4.5vw,3.7rem);
-  line-height: 1.2;
-  margin-bottom: 17px;
-}
-
-.section-heading p {
-  max-width: 570px;
-  color: var(--muted);
-  font-size: .94rem;
-}
-
-.accent {
-  color: var(--blush);
-}
-
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 13px 20px;
+  gap: 10px;
+  padding: 13px 21px;
   border: 1px solid var(--blush);
   border-radius: 40px;
   font-size: .83rem;
@@ -151,7 +120,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 25px;
 }
 
 .brand {
@@ -159,41 +128,36 @@ nav {
   align-items: center;
   gap: 12px;
   font-family: var(--serif);
-  font-size: 1.23rem;
-  line-height: 1.35;
+  font-size: 1.2rem;
+  line-height: 1.3;
 }
 
 .brand-icon {
   width: 38px;
   height: 38px;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--champagne);
   border-radius: 50%;
   color: var(--champagne);
-  font-size: 1.25rem;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
 }
 
 .brand small {
+  display: block;
   color: var(--muted);
   font-family: var(--sans);
-  font-size: .66rem;
+  font-size: .65rem;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 23px;
+  flex-wrap: wrap;
+  gap: 21px;
   list-style: none;
-  font-size: .78rem;
   color: var(--muted);
+  font-size: .78rem;
 }
 
 .nav-links a:hover {
@@ -210,7 +174,7 @@ nav {
 /* HERO */
 
 .hero {
-  padding: 85px 0 75px;
+  padding: 85px 0;
   display: grid;
   grid-template-columns: 1.08fr .92fr;
   align-items: center;
@@ -246,7 +210,7 @@ nav {
 
 .hero-visual {
   position: relative;
-  min-height: 480px;
+  min-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -288,14 +252,12 @@ nav {
   font-family: var(--serif);
   font-size: 1.8rem;
   font-weight: 400;
-  line-height: 1.2;
 }
 
 .portrait-words p {
   color: var(--champagne);
   font-family: var(--handwritten);
   font-size: 1.5rem;
-  margin-top: 8px;
 }
 
 .portrait-note {
@@ -311,7 +273,6 @@ nav {
   font-size: 1.25rem;
   line-height: 1.15;
   transform: rotate(-5deg);
-  z-index: 3;
 }
 
 .hero-caption {
@@ -353,13 +314,6 @@ nav {
   border-right: none;
 }
 
-.expertise-number {
-  color: var(--champagne);
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  margin-bottom: 12px;
-}
-
 .expertise-item h3 {
   font-family: var(--serif);
   font-weight: 400;
@@ -370,161 +324,169 @@ nav {
 .expertise-item p {
   color: var(--muted);
   font-size: .78rem;
-  line-height: 1.65;
 }
 
-/* PROJECTS */
-
-.projects-layout {
-  display: grid;
-  grid-template-columns: .75fr 1.75fr;
-  gap: 45px;
-  align-items: start;
-}
-
-.projects-intro {
-  position: sticky;
-  top: 125px;
-}
-
-.projects-intro h2 {
+.expertise-symbol {
+  color: var(--champagne);
   font-family: var(--serif);
-  font-size: clamp(2.4rem,4vw,3.5rem);
-  line-height: 1.15;
-  font-weight: 400;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-.projects-intro p {
+/* PROJECTS - SCREENSHOT DESIGN */
+
+.projects-section {
+  padding: 95px 0 105px;
+}
+
+.projects-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+
+.projects-heading h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem,5vw,4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.projects-heading p {
+  max-width: 650px;
   color: var(--muted);
-  font-size: .88rem;
-  margin-bottom: 25px;
+  font-size: .92rem;
+}
+
+.projects-count {
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-bottom: 8px;
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 20px;
 }
 
 .project-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 7px;
-  overflow: hidden;
-  transition: transform .25s,border-color .25s;
+  border-radius: 3px;
+  padding: 25px 24px 23px;
+  transition: transform .25s,border-color .25s,background .25s;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   border-color: rgba(217,166,160,.55);
+  background: #30211b;
 }
 
-.project-art {
-  min-height: 165px;
-  padding: 22px;
-  background: radial-gradient(circle at 75% 25%,#75564a 0%,transparent 35%),linear-gradient(135deg,#4b3329,#2b1e19 75%);
+.project-top {
   display: flex;
-  align-items: end;
   justify-content: space-between;
-  gap: 12px;
-}
-
-/* Warm brown artwork variations */
-
-.project-card:nth-child(2) .project-art {
-  background: radial-gradient(circle at 70% 20%,#665045 0%,transparent 35%),linear-gradient(135deg,#3a2923,#493229);
-}
-
-.project-card:nth-child(3) .project-art {
-  background: radial-gradient(circle at 70% 25%,#786044 0%,transparent 35%),linear-gradient(135deg,#443027,#29201b);
-}
-
-.project-card:nth-child(4) .project-art {
-  background: radial-gradient(circle at 70% 25%,#76515a 0%,transparent 35%),linear-gradient(135deg,#4b3033,#2b1e19);
-}
-
-/* Data analytics remains brown */
-
-.project-card:nth-child(5) .project-art,
-.project-card:nth-child(6) .project-art,
-.project-card:nth-child(7) .project-art,
-.project-card:nth-child(8) .project-art,
-.project-card:nth-child(9) .project-art {
-  background: radial-gradient(circle at 75% 20%,#765746 0%,transparent 38%),linear-gradient(135deg,#50372b,#2b1e19 80%);
-}
-
-.art-label {
-  color: var(--champagne);
-  font-size: .7rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.art-number {
-  color: rgba(245,238,227,.45);
-  font-family: var(--serif);
-  font-size: 2.7rem;
-}
-
-.project-icon {
-  width: 42px;
-  height: 42px;
-  color: var(--champagne);
-  margin-bottom: 12px;
-}
-
-.project-icon svg {
-  width: 100%;
-  height: 100%;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.project-content {
-  padding: 23px;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 23px;
 }
 
 .project-category {
   color: var(--blush);
-  font-size: .68rem;
-  letter-spacing: 1.2px;
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
-  margin-bottom: 11px;
 }
 
-.project-content h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.32rem;
-  line-height: 1.35;
-  margin-bottom: 12px;
-}
-
-.project-content p {
-  color: var(--muted);
-  font-size: .81rem;
-}
-
-.project-link {
-  display: inline-block;
+.project-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216,193,154,.45);
   color: var(--champagne);
-  font-size: .8rem;
-  margin-top: 18px;
-  background: none;
+}
+
+.project-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-card h3 {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.project-description {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.project-tags span {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 4px 9px;
+  font-size: .67rem;
+}
+
+.project-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  background: transparent;
   border: none;
-  cursor: pointer;
-  font-family: var(--sans);
-}
-
-.project-link:hover {
   color: var(--blush);
+  font-size: .77rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .2s;
 }
 
-/* CLICKABLE PROJECT SIDE PANEL */
+.project-open:hover {
+  color: var(--champagne);
+}
+
+.project-open span {
+  transition: transform .2s;
+}
+
+.project-open:hover span {
+  transform: translateX(5px);
+}
+
+/* PROJECT DETAILS PANEL */
 
 .project-modal {
   position: fixed;
@@ -535,7 +497,7 @@ nav {
   justify-content: flex-end;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .3s, visibility .3s;
+  transition: opacity .3s,visibility .3s;
 }
 
 .project-modal.active {
@@ -548,7 +510,7 @@ nav {
   width: min(560px,100%);
   height: 100%;
   overflow-y: auto;
-  padding: 65px 40px 40px;
+  padding: 70px 40px 40px;
   background: var(--surface);
   border-left: 1px solid var(--border);
   transform: translateX(100%);
@@ -579,10 +541,10 @@ nav {
 
 .modal-content h2 {
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 400;
   line-height: 1.25;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .modal-content h3 {
@@ -608,7 +570,6 @@ nav {
 
 .modal-tags span {
   border: 1px solid var(--border);
-  border-radius: 25px;
   padding: 6px 11px;
   color: var(--champagne);
   font-size: .75rem;
@@ -672,7 +633,6 @@ nav {
   padding: 28px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 6px;
 }
 
 .skill-card h3 {
@@ -697,7 +657,6 @@ nav {
 .skill-tags span {
   padding: 6px 11px;
   border: 1px solid var(--border);
-  border-radius: 30px;
   color: var(--champagne);
   font-size: .73rem;
 }
@@ -809,7 +768,6 @@ nav {
 .social-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 18px;
   margin-top: 28px;
 }
@@ -823,7 +781,7 @@ nav {
   border: 1px solid var(--border);
   border-radius: 50%;
   color: var(--champagne);
-  transition: all .25s;
+  transition: .25s;
 }
 
 .social-icons a:hover {
@@ -884,9 +842,9 @@ footer {
   font-size: .7rem;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 
-@media (max-width:900px) {
+@media(max-width:950px) {
   nav {
     align-items: flex-start;
     flex-direction: column;
@@ -894,28 +852,13 @@ footer {
     gap: 15px;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 13px 18px;
-  }
-
   .hero {
     grid-template-columns: 1fr .85fr;
     gap: 25px;
-    padding: 65px 0;
   }
 
-  .hero-visual {
-    min-height: 350px;
-  }
-
-  .portrait-frame {
-    height: 350px;
-  }
-
-  .portrait-note {
-    right: -5px;
-    bottom: 35px;
+  .project-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
   .expertise-grid {
@@ -925,37 +868,20 @@ footer {
   .expertise-item {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 20px 12px;
-  }
-
-  .expertise-item:first-child {
-    padding-left: 12px;
-  }
-
-  .projects-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .projects-intro {
-    position: static;
   }
 
   .about-grid {
     gap: 35px;
   }
-
-  .cv-grid {
-    gap: 30px;
-  }
 }
 
-@media (max-width:600px) {
+@media(max-width:600px) {
   .container {
     width: 90%;
   }
 
-  .section {
+  .section,
+  .projects-section {
     padding: 70px 0;
   }
 
@@ -979,30 +905,25 @@ footer {
     height: 360px;
   }
 
-  .portrait-note {
-    right: -1px;
-  }
-
   .expertise-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
-  .expertise-item:nth-child(odd) {
-    border-right: 1px solid var(--border);
-  }
-
   .project-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-art {
-    min-height: 185px;
-  }
-
+  .skills-grid,
   .about-grid,
   .cv-grid {
     grid-template-columns: 1fr;
+  }
+
+  .projects-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-card h3 {
+    font-size: 1.45rem;
   }
 
   .about-art {
@@ -1019,18 +940,6 @@ footer {
     flex-direction: column;
   }
 
-  .footer-links {
-    gap: 14px;
-  }
-
-  .nav-links {
-    font-size: .75rem;
-  }
-
-  .brand {
-    font-size: 1.1rem;
-  }
-
   .modal-content {
     padding: 65px 24px 30px;
   }
@@ -1045,18 +954,18 @@ footer {
 
   <a href="#home" class="brand">
     <span class="brand-icon">H</span>
-    <span class="brand-text">
+    <span>
       Humaida Danjuma Khalid
       <small>Research | Public Health | Data Analytics</small>
     </span>
   </a>
 
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#skills">Skills & Tools</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#cv">CV</a></li>
     <li><a href="#contact" class="nav-contact">Get in Touch</a></li>
   </ul>
@@ -1071,6 +980,8 @@ footer {
 <section class="hero container" id="home">
 
   <div>
+    <p class="eyebrow">Public Health | Research | Data</p>
+
     <h1>
       Turning evidence into <em>insights</em> for healthier communities and better decisions
     </h1>
@@ -1083,20 +994,14 @@ footer {
     </p>
 
     <div class="hero-buttons">
-      <a href="#projects" class="button button-primary">
-        View My Projects <span>→</span>
-      </a>
-
-      <a href="#about" class="button button-secondary">
-        Get to Know Me
-      </a>
+      <a href="#projects" class="button button-primary">Explore My Work →</a>
+      <a href="#about" class="button button-secondary">Get to Know Me</a>
     </div>
   </div>
 
   <div class="hero-visual">
-
     <div class="portrait-frame">
-      <img src="profile.jpg" alt="Portrait of Humaida Danjuma Khalid">
+      <img src="profile.jpg" alt="Humaida Danjuma Khalid">
       <div class="portrait-overlay"></div>
 
       <div class="portrait-words">
@@ -1105,15 +1010,8 @@ footer {
       </div>
     </div>
 
-    <p class="hero-caption">
-      Thoughtful questions.<br>
-      Meaningful answers.
-    </p>
-
-    <p class="portrait-note">
-      Research helps us ask better questions.
-    </p>
-
+    <p class="hero-caption">Thoughtful questions.<br>Meaningful answers.</p>
+    <p class="portrait-note">Research helps us ask better questions.</p>
   </div>
 
 </section>
@@ -1124,33 +1022,33 @@ footer {
 <div class="container expertise-grid">
 
   <article class="expertise-item">
-    <div class="expertise-number">01</div>
+    <div class="expertise-symbol">✳</div>
     <h3>Research</h3>
     <p>Evidence-based research and analysis.</p>
   </article>
 
   <article class="expertise-item">
-    <div class="expertise-number">02</div>
+    <div class="expertise-symbol">⌂</div>
     <h3>Public Health</h3>
     <p>Health systems, policy and community health.</p>
   </article>
 
   <article class="expertise-item">
-    <div class="expertise-number">03</div>
+    <div class="expertise-symbol">⌁</div>
     <h3>Data Analytics</h3>
     <p>Turning data into meaningful insights.</p>
   </article>
 
   <article class="expertise-item">
-    <div class="expertise-number">04</div>
+    <div class="expertise-symbol">✎</div>
     <h3>Writing & Communication</h3>
     <p>Clear, accurate and engaging content.</p>
   </article>
 
   <article class="expertise-item">
-    <div class="expertise-number">05</div>
+    <div class="expertise-symbol">◇</div>
     <h3>Professional Experience</h3>
-    <p>Procurement, logistics, inventory and relationship management.</p>
+    <p>Procurement, logistics and relationship management.</p>
   </article>
 
 </div>
@@ -1158,245 +1056,318 @@ footer {
 
 <!-- PROJECTS -->
 
-<section class="section" id="projects">
-<div class="container projects-layout">
+<section class="projects-section" id="projects">
+<div class="container">
 
-  <div class="projects-intro">
-    <p class="eyebrow">Selected Work</p>
-    <h2>Research with a purpose</h2>
-    <p>
-      A selection of research and analytical work exploring
-      health, access to care and the practical use of data.
-    </p>
+  <div class="projects-heading">
+    <div>
+      <h2>Research with a purpose</h2>
+      <p>
+        A selection of research, data and professional projects
+        that reflect my interests and experience. Select a project
+        to read more about its focus, approach and tools.
+      </p>
+    </div>
+
+    <span class="projects-count">Selected Projects</span>
   </div>
 
   <div class="project-grid">
 
-    <!-- PROJECT 1 -->
+    <!-- NON-COMMUNICABLE DISEASES -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/>
-              <path d="M8 12h2l1.3-3 2.1 6 1.2-3H17"/>
-            </svg>
-          </div>
-          <span class="art-label">Public Health Research</span>
-        </div>
-        <span class="art-number">01</span>
+      <div class="project-top">
+        <span class="project-category">Public Health Research</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 19V5M3 19h18"/>
+            <path d="M6 15l4-4 3 2 5-7"/>
+            <path d="M15 6h3v3"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Research</p>
-        <h3>Non-Communicable Disease Prevention</h3>
-        <p>Exploring awareness, knowledge and preventive practices among adults in Jos Metropolis.</p>
-        <button class="project-link" data-project="0">View Project Details →</button>
+
+      <h3>Non-Communicable Disease Prevention</h3>
+
+      <p class="project-description">
+        Research examining awareness, knowledge and preventive
+        practices relating to non-communicable diseases among
+        adults in Jos Metropolis.
+      </p>
+
+      <div class="project-tags">
+        <span>Research</span>
+        <span>SPSS</span>
       </div>
+
+      <button class="project-open" data-project="0">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 2 -->
+    <!-- HEALTHCARE FINANCING -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 21h18M5 21V7l7-4 7 4v14"/>
-              <path d="M9 21v-6h6v6M9 9h.01M15 9h.01M9 12h.01M15 12h.01"/>
-            </svg>
-          </div>
-          <span class="art-label">Health Systems</span>
-        </div>
-        <span class="art-number">02</span>
+      <div class="project-top">
+        <span class="project-category">Health Systems Research</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 10h18M7 15h4"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Healthcare Financing</p>
-        <h3>Healthcare Financing & Primary Care</h3>
-        <p>Examining household healthcare expenditure, access to services and primary healthcare delivery across the FCT.</p>
-        <button class="project-link" data-project="1">View Project Details →</button>
+
+      <h3>Healthcare Financing and Primary Care</h3>
+
+      <p class="project-description">
+        A study exploring healthcare financing, household
+        expenditure and access to primary healthcare services
+        in the FCT.
+      </p>
+
+      <div class="project-tags">
+        <span>Health Systems</span>
+        <span>Field Research</span>
       </div>
+
+      <button class="project-open" data-project="1">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 3 -->
+    <!-- OCCUPATIONAL HEALTH -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v5l3 2M8 3l-2 2M16 3l2 2"/>
-            </svg>
-          </div>
-          <span class="art-label">Research & Statistics</span>
-        </div>
-        <span class="art-number">03</span>
+      <div class="project-top">
+        <span class="project-category">Occupational Health</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Occupational Health</p>
-        <h3>Workplace Stress & Mental Wellbeing</h3>
-        <p>Research exploring work-related stress and mental wellbeing among community health extension workers.</p>
-        <button class="project-link" data-project="2">View Project Details →</button>
+
+      <h3>Work-Related Stress and Mental Wellbeing</h3>
+
+      <p class="project-description">
+        Public health research focused on work-related stress
+        and mental wellbeing among Community Health Extension Workers.
+      </p>
+
+      <div class="project-tags">
+        <span>Research Design</span>
+        <span>SPSS</span>
       </div>
+
+      <button class="project-open" data-project="2">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 4 -->
+    <!-- DATA ANALYTICS -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 19V5M4 19h17"/>
-              <path d="M7 15l4-4 3 2 6-7"/>
-              <path d="M16 6h4v4"/>
-            </svg>
-          </div>
-          <span class="art-label">Data Analytics</span>
-        </div>
-        <span class="art-number">04</span>
+      <div class="project-top">
+        <span class="project-category">Data Analytics</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 20V4M4 20h17"/>
+            <rect x="7" y="12" width="3" height="6"/>
+            <rect x="12" y="8" width="3" height="10"/>
+            <rect x="17" y="5" width="3" height="13"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Data Analytics</p>
-        <h3>Health Data Cleaning & Visualisation</h3>
-        <p>A data project focused on improving data quality, analysing patterns and communicating findings through clear visualisations.</p>
-        <button class="project-link" data-project="3">View Project Details →</button>
+
+      <h3>Health Data Cleaning and Visualisation</h3>
+
+      <p class="project-description">
+        A data project focused on data quality, preparation,
+        analysis and presenting useful insights through visualisation.
+      </p>
+
+      <div class="project-tags">
+        <span>Excel</span>
+        <span>Power BI</span>
       </div>
+
+      <button class="project-open" data-project="3">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 5 -->
+    <!-- PROCUREMENT DASHBOARD -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 19V5M4 19h17"/>
-              <rect x="7" y="11" width="3" height="6"/>
-              <rect x="12" y="8" width="3" height="9"/>
-              <rect x="17" y="5" width="3" height="12"/>
-            </svg>
-          </div>
-          <span class="art-label">Procurement Analytics</span>
-        </div>
-        <span class="art-number">05</span>
+      <div class="project-top">
+        <span class="project-category">Business Intelligence</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M7 15v-3M12 15V8M17 15v-5"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Business Intelligence</p>
-        <h3>Procurement Performance Dashboard</h3>
-        <p>Monitoring procurement spend, supplier performance, delivery timelines and procurement efficiency.</p>
-        <button class="project-link" data-project="4">View Project Details →</button>
+
+      <h3>Procurement and Sales Dashboard</h3>
+
+      <p class="project-description">
+        A performance dashboard designed to monitor spend,
+        supplier performance, delivery timelines and operational trends.
+      </p>
+
+      <div class="project-tags">
+        <span>Power BI</span>
+        <span>Excel</span>
       </div>
+
+      <button class="project-open" data-project="4">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 6 -->
+    <!-- SQL -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <ellipse cx="12" cy="5" rx="8" ry="3"/>
-              <path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/>
-            </svg>
-          </div>
-          <span class="art-label">Database Management</span>
-        </div>
-        <span class="art-number">06</span>
+      <div class="project-top">
+        <span class="project-category">Database Management</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="8" ry="3"/>
+            <path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
+            <path d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">SQL</p>
-        <h3>Data Cleaning & Preparation</h3>
-        <p>A structured data preparation project using SQL queries to identify and address data quality issues.</p>
-        <button class="project-link" data-project="5">View Project Details →</button>
+
+      <h3>SQL Data Cleaning and Preparation</h3>
+
+      <p class="project-description">
+        A structured data preparation project using SQL to
+        identify inconsistencies and improve data quality.
+      </p>
+
+      <div class="project-tags">
+        <span>SQL</span>
+        <span>Data Cleaning</span>
       </div>
+
+      <button class="project-open" data-project="5">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 7 -->
+    <!-- MALARIA -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 3v18M3 12h18"/>
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 3a9 9 0 0 1 0 18M3 12a9 9 0 0 0 18 0"/>
-            </svg>
-          </div>
-          <span class="art-label">Malaria Research</span>
-        </div>
-        <span class="art-number">07</span>
+      <div class="project-top">
+        <span class="project-category">Public Health Research</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="M12 4v16M4 12h16M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Public Health</p>
-        <h3>Malaria Research Project</h3>
-        <p>Exploring malaria-related public health information, prevention and the importance of evidence in disease control.</p>
-        <button class="project-link" data-project="6">View Project Details →</button>
+
+      <h3>Malaria Research Project</h3>
+
+      <p class="project-description">
+        A public health project exploring malaria-related
+        research, prevention and the role of evidence in disease control.
+      </p>
+
+      <div class="project-tags">
+        <span>Malaria</span>
+        <span>Public Health</span>
       </div>
+
+      <button class="project-open" data-project="6">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 8 -->
+    <!-- UNDERGRADUATE STUDY -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 21h16M6 21V5h12v16M9 9h6M9 13h6M9 17h6"/>
-              <path d="M9 5V3h6v2"/>
-            </svg>
-          </div>
-          <span class="art-label">Academic Research</span>
-        </div>
-        <span class="art-number">08</span>
+      <div class="project-top">
+        <span class="project-category">Academic Research</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-5 9 5-9 5z"/>
+            <path d="M7 12v5c3 2 7 2 10 0v-5"/>
+            <path d="M21 9v6"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">Undergraduate Research</p>
-        <h3>Undergraduate Research Project</h3>
-        <p>Academic research experience demonstrating scientific inquiry, research methods, data interpretation and reporting.</p>
-        <button class="project-link" data-project="7">View Project Details →</button>
+
+      <h3>Undergraduate Research Study</h3>
+
+      <p class="project-description">
+        Academic research demonstrating scientific inquiry,
+        research methods, data interpretation and reporting.
+      </p>
+
+      <div class="project-tags">
+        <span>Microbiology</span>
+        <span>Research</span>
       </div>
+
+      <button class="project-open" data-project="7">
+        View project details <span>→</span>
+      </button>
     </article>
 
-    <!-- PROJECT 9 -->
+    <!-- SPSS -->
 
     <article class="project-card">
-      <div class="project-art">
-        <div>
-          <div class="project-icon">
-            <svg viewBox="0 0 24 24">
-              <rect x="4" y="3" width="16" height="18" rx="2"/>
-              <path d="M8 7h8M8 11h3M8 15h3M15 11v5M15 16l2-2 2 2"/>
-            </svg>
-          </div>
-          <span class="art-label">Statistical Analysis</span>
-        </div>
-        <span class="art-number">09</span>
+      <div class="project-top">
+        <span class="project-category">Statistical Analysis</span>
+        <span class="project-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 20V4M4 20h17"/>
+            <path d="M7 15l4-5 3 3 5-7"/>
+            <circle cx="7" cy="15" r="1"/>
+            <circle cx="11" cy="10" r="1"/>
+            <circle cx="14" cy="13" r="1"/>
+            <circle cx="19" cy="6" r="1"/>
+          </svg>
+        </span>
       </div>
-      <div class="project-content">
-        <p class="project-category">SPSS & Research</p>
-        <h3>Statistical Analysis & Reporting</h3>
-        <p>Demonstrating the use of statistical methods to organise, analyse and interpret quantitative research data.</p>
-        <button class="project-link" data-project="8">View Project Details →</button>
+
+      <h3>SPSS Statistical Analysis</h3>
+
+      <p class="project-description">
+        A statistical analysis showcase demonstrating how
+        quantitative data can be organised, analysed and interpreted.
+      </p>
+
+      <div class="project-tags">
+        <span>SPSS</span>
+        <span>Statistics</span>
       </div>
+
+      <button class="project-open" data-project="8">
+        View project details <span>→</span>
+      </button>
     </article>
 
   </div>
 </div>
 </section>
 
-<!-- PROJECT DETAIL SIDE PANEL -->
+<!-- PROJECT DETAILS MODAL -->
 
 <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
   <div class="modal-content">
 
-    <button class="modal-close" id="modalClose" aria-label="Close project details">&times;</button>
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
 
     <p class="eyebrow" id="modalCategory">Project Details</p>
-
     <h2 id="modalTitle"></h2>
 
     <h3>Overview</h3>
@@ -1433,9 +1404,9 @@ footer {
     <h2>My background, interests and approach</h2>
 
     <p>
-      I hold a BSc in Microbiology and a Master of Public
-      Health, with experience in research, procurement,
-      logistics, inventory and relationship management.
+      I hold a BSc in Microbiology and a Master of Public Health,
+      with experience in research, procurement, logistics,
+      inventory and relationship management.
     </p>
 
     <p>
@@ -1466,7 +1437,7 @@ footer {
   <div class="section-heading">
     <p class="eyebrow">Skills & Tools</p>
     <h2>What I bring to the work</h2>
-    <p>
+    <p style="color:var(--muted);max-width:570px;">
       A combination of research methods, statistical analysis,
       data visualisation and professional experience.
     </p>
@@ -1539,19 +1510,17 @@ footer {
   <div class="section-heading">
     <p class="eyebrow">Professional Journey</p>
     <h2>Where research meets practice</h2>
-    <p>
-      Experience across public health, research, data
-      reporting and operational processes.
+    <p style="color:var(--muted);">
+      Experience across public health, research, data reporting
+      and operational processes.
     </p>
   </div>
 
   <article class="experience-row">
     <div class="experience-date">Procurement</div>
-
     <div class="experience-content">
       <h3>Procurement Officer</h3>
       <h4>Public Health Programme Support</h4>
-
       <p>
         Contributing to procurement processes, performance
         reporting, data quality checks and structured
@@ -1564,11 +1533,9 @@ footer {
 
   <article class="experience-row">
     <div class="experience-date">Research Experience</div>
-
     <div class="experience-content">
       <h3>Public Health Research</h3>
       <h4>Quantitative Research & Analysis</h4>
-
       <p>
         Experience in survey-based research, questionnaire
         development, data collection, statistical analysis
@@ -1579,10 +1546,8 @@ footer {
 
   <article class="experience-row">
     <div class="experience-date">Client Relationship Management</div>
-
     <div class="experience-content">
       <h3>Relationship Manager</h3>
-
       <p>
         Experience in client relationship management,
         communication, service delivery and stakeholder
@@ -1593,10 +1558,8 @@ footer {
 
   <article class="experience-row">
     <div class="experience-date">Inventory & Operations Management</div>
-
     <div class="experience-content">
       <h3>Logistics & Inventory</h3>
-
       <p>
         Experience in inventory management, stock records,
         documentation and operational coordination.
@@ -1607,7 +1570,42 @@ footer {
 </div>
 </section>
 
-<!-- CURRICULUM VITAE -->
+<!-- EDUCATION -->
+
+<section class="section" id="education">
+<div class="container">
+
+  <div class="section-heading">
+    <p class="eyebrow">Education</p>
+    <h2>Academic background</h2>
+  </div>
+
+  <article class="experience-row">
+    <div class="experience-date">October 2024 – April 2026</div>
+    <div class="experience-content">
+      <h3>Master of Public Health (MPH)</h3>
+      <h4>Ahmadu Bello University, Zaria</h4>
+      <p>
+        Training in epidemiology, biostatistics, health policy
+        and systems, programme design and evaluation,
+        environmental health and public health research methods.
+      </p>
+    </div>
+  </article>
+
+  <article class="experience-row">
+    <div class="experience-date">July 2015 – April 2021</div>
+    <div class="experience-content">
+      <h3>BSc Microbiology</h3>
+      <h4>University of Jos</h4>
+      <p>Second Class Upper Division.</p>
+    </div>
+  </article>
+
+</div>
+</section>
+
+<!-- CV -->
 
 <section class="section cv-section" id="cv">
 <div class="container cv-grid">
@@ -1647,7 +1645,7 @@ footer {
 
   <h2>
     Good work begins<br>
-    with a <span class="accent">conversation.</span>
+    with a <span style="color:var(--blush);">conversation.</span>
   </h2>
 
   <p>
@@ -1657,26 +1655,17 @@ footer {
 
   <div class="social-icons">
 
-    <a href="mailto:danjumahumaida@gmail.com"
-       aria-label="Send an email"
-       title="Email">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+    <a href="mailto:danjumahumaida@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24">
         <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
-
     </a>
 
     <a href="https://www.linkedin.com/in/humaida-danjuma-66057224b"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Visit LinkedIn profile"
-       title="LinkedIn">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+       target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24">
         <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18V9.6H5.5V18h2.8zM6.9 8.5a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2zM18.5 18v-4.6c0-2.5-1.3-3.7-3.1-3.7-1.4 0-2 .8-2.4 1.3V9.6h-2.8V18H13v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.2V18h2.5z"/>
       </svg>
-
     </a>
 
   </div>
@@ -1692,12 +1681,9 @@ footer {
 <div class="container">
 
   <div class="footer-content">
-
     <div>
       <div class="footer-name">Humaida Danjuma Khalid</div>
-      <div class="footer-caption">
-        Research | Public Health | Data Analytics
-      </div>
+      <div class="footer-caption">Research | Public Health | Data Analytics</div>
     </div>
 
     <div class="footer-links">
@@ -1705,10 +1691,9 @@ footer {
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#cv">CV</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
-
   </div>
 
   <div class="copyright">
@@ -1718,7 +1703,7 @@ footer {
 </div>
 </footer>
 
-<!-- JAVASCRIPT: ALL NINE PROJECT DETAILS -->
+<!-- PROJECT INTERACTION -->
 
 <script>
 
@@ -1727,33 +1712,33 @@ const projectDetails = [
   {
     category: "Public Health Research",
     title: "Non-Communicable Disease Prevention",
-    overview: "This research explores awareness, knowledge and preventive practices relating to non-communicable diseases among adults in Jos Metropolis.",
+    overview: "Research examining awareness, knowledge and preventive practices relating to non-communicable diseases among adults in Jos Metropolis.",
     methods: "The research focuses on quantitative research methods, survey-based data collection, questionnaire development and statistical analysis.",
-    tools: ["SPSS", "Research Methods", "Survey Data", "Statistical Analysis"],
+    tools: ["Research Methods", "SPSS", "Survey Data"],
     focus: "Understanding knowledge and preventive practices to support evidence-based public health interventions."
   },
 
   {
-    category: "Healthcare Financing",
-    title: "Healthcare Financing & Primary Care",
-    overview: "An independent consultancy study examining healthcare financing, household healthcare expenditure and access to primary healthcare services across the Federal Capital Territory.",
+    category: "Health Systems Research",
+    title: "Healthcare Financing and Primary Care",
+    overview: "A study exploring healthcare financing, household healthcare expenditure and access to primary healthcare services in the FCT.",
     methods: "The study focuses on healthcare financing, research design, data collection, analysis and interpretation of findings.",
-    tools: ["Research Methods", "Data Analysis", "Healthcare Financing"],
+    tools: ["Health Systems", "Field Research", "Data Analysis"],
     focus: "Understanding how healthcare financing relates to access to essential health services."
   },
 
   {
     category: "Occupational Health",
-    title: "Workplace Stress & Mental Wellbeing",
-    overview: "Research exploring work-related stress and mental wellbeing among community health extension workers.",
+    title: "Work-Related Stress and Mental Wellbeing",
+    overview: "Public health research focused on work-related stress and mental wellbeing among Community Health Extension Workers.",
     methods: "The research draws on quantitative research methods, questionnaire-based data collection and statistical analysis.",
-    tools: ["SPSS", "Questionnaire Development", "Research Methods"],
+    tools: ["Research Design", "SPSS", "Questionnaire Development"],
     focus: "Examining occupational factors associated with the wellbeing of community health workers."
   },
 
   {
     category: "Data Analytics",
-    title: "Health Data Cleaning & Visualisation",
+    title: "Health Data Cleaning and Visualisation",
     overview: "A data analytics project focused on preparing datasets, improving data quality and communicating patterns through visualisations.",
     methods: "The project involves data inspection, cleaning, transformation, analysis and dashboard presentation.",
     tools: ["Excel", "SQL", "Power BI"],
@@ -1761,17 +1746,17 @@ const projectDetails = [
   },
 
   {
-    category: "Procurement Analytics",
-    title: "Procurement Performance Dashboard",
-    overview: "A dashboard project designed to monitor procurement activities and support operational decision-making.",
-    methods: "The dashboard organises procurement information into spend analysis, supplier performance and procurement efficiency views.",
+    category: "Business Intelligence",
+    title: "Procurement and Sales Dashboard",
+    overview: "A dashboard project designed to monitor procurement and sales information and support operational decision-making.",
+    methods: "The dashboard organises information into performance views, spend analysis, supplier performance and operational trends.",
     tools: ["Excel", "Power BI", "Data Visualisation"],
-    focus: "Tracking procurement spend, supplier performance, delivery timelines and procurement efficiency."
+    focus: "Using performance indicators and visual reporting to support better business decisions."
   },
 
   {
-    category: "SQL",
-    title: "Data Cleaning & Preparation",
+    category: "Database Management",
+    title: "SQL Data Cleaning and Preparation",
     overview: "A SQL project focused on preparing structured datasets and improving data quality before analysis.",
     methods: "The work includes identifying missing values, checking duplicates, standardising records and preparing data for further analysis.",
     tools: ["SQL", "Data Cleaning", "Database Queries"],
@@ -1779,17 +1764,17 @@ const projectDetails = [
   },
 
   {
-    category: "Malaria Research",
+    category: "Public Health Research",
     title: "Malaria Research Project",
-    overview: "A public health research project exploring malaria-related information, prevention and disease control.",
+    overview: "A public health project exploring malaria-related research, prevention and disease control.",
     methods: "The project focuses on reviewing relevant public health information, research methods and the interpretation of evidence.",
     tools: ["Public Health Research", "Research Methods", "Data Analysis"],
     focus: "Understanding the role of evidence in malaria prevention and control."
   },
 
   {
-    category: "Undergraduate Research",
-    title: "Undergraduate Research Project",
+    category: "Academic Research",
+    title: "Undergraduate Research Study",
     overview: "An academic research project reflecting undergraduate scientific training and experience in microbiology.",
     methods: "The project demonstrates scientific inquiry, research design, data gathering, interpretation and academic reporting.",
     tools: ["Microbiology", "Scientific Research", "Data Interpretation"],
@@ -1798,23 +1783,24 @@ const projectDetails = [
 
   {
     category: "Statistical Analysis",
-    title: "Statistical Analysis & Reporting",
-    overview: "A research and analysis project demonstrating the use of statistical methods to organise, analyse and interpret quantitative data.",
+    title: "SPSS Statistical Analysis",
+    overview: "A research and analysis showcase demonstrating the use of statistical methods to organise, analyse and interpret quantitative data.",
     methods: "The work includes data organisation, descriptive analysis, statistical interpretation and presentation of findings.",
-    tools: ["SPSS", "Excel", "Quantitative Research", "Statistical Analysis"],
+    tools: ["SPSS", "Excel", "Quantitative Research"],
     focus: "Supporting reliable research findings through appropriate statistical analysis and clear reporting."
   }
 
 ];
 
 const modal = document.getElementById("projectModal");
+const closeButton = document.getElementById("modalClose");
+
 const modalTitle = document.getElementById("modalTitle");
 const modalCategory = document.getElementById("modalCategory");
 const modalOverview = document.getElementById("modalOverview");
 const modalMethods = document.getElementById("modalMethods");
 const modalTools = document.getElementById("modalTools");
 const modalFocus = document.getElementById("modalFocus");
-const closeButton = document.getElementById("modalClose");
 
 let lastFocusedElement = null;
 
@@ -1843,7 +1829,7 @@ document.querySelectorAll("[data-project]").forEach(button => {
     });
 
     modal.classList.add("active");
-    document.body.classList.add("panel-open");
+    document.body.classList.add("modal-open");
 
     closeButton.focus();
 
@@ -1853,7 +1839,7 @@ document.querySelectorAll("[data-project]").forEach(button => {
 
 function closeProjectModal() {
   modal.classList.remove("active");
-  document.body.classList.remove("panel-open");
+  document.body.classList.remove("modal-open");
 
   if (lastFocusedElement) {
     lastFocusedElement.focus();
