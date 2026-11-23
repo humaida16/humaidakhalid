@@ -1,4 +1,3 @@
-
 /* =========================================
    MOBILE NAVIGATION
 ========================================= */
@@ -367,7 +366,7 @@ document.querySelectorAll("[data-project]").forEach(button => {
 
     const project = projectDetails[Number(button.dataset.project)];
 
-    if (!project) return;
+    if (!project || !modal) return;
 
     lastFocusedElement = button;
 
@@ -405,6 +404,8 @@ document.querySelectorAll("[data-project]").forEach(button => {
 
 function closeProjectModal() {
 
+  if (!modal) return;
+
   modal.classList.remove("active");
   document.body.classList.remove("modal-open");
 
@@ -415,25 +416,112 @@ function closeProjectModal() {
 }
 
 
-closeButton.addEventListener("click", closeProjectModal);
+if (closeButton && modal) {
+
+  closeButton.addEventListener("click", closeProjectModal);
 
 
-modal.addEventListener("click", event => {
+  modal.addEventListener("click", event => {
 
-  if (event.target === modal) {
-    closeProjectModal();
-  }
+    if (event.target === modal) {
+      closeProjectModal();
+    }
 
-});
+  });
 
 
-document.addEventListener("keydown", event => {
+  document.addEventListener("keydown", event => {
 
-  if (
-    event.key === "Escape" &&
-    modal.classList.contains("active")
-  ) {
-    closeProjectModal();
-  }
+    if (
+      event.key === "Escape" &&
+      modal.classList.contains("active")
+    ) {
+      closeProjectModal();
+    }
 
-});
+  });
+
+}
+
+
+/* =========================================
+   SCROLL-TRIGGERED ENTRANCE ANIMATIONS
+========================================= */
+
+const revealElements = document.querySelectorAll(
+  "main section[id], .project-card, .skill-card"
+);
+
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+
+if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+
+  // Display everything immediately when animations
+  // are disabled or unsupported.
+
+  revealElements.forEach(element => {
+    element.classList.add("visible");
+  });
+
+} else {
+
+  // Prepare elements for entrance animations.
+
+  revealElements.forEach((element, index) => {
+
+    element.classList.add("reveal");
+
+    // Add a slight stagger to project cards.
+
+    if (element.classList.contains("project-card")) {
+
+      const delay = (index % 3) * 100;
+
+      element.style.setProperty(
+        "--reveal-delay",
+        `${delay}ms`
+      );
+
+    }
+
+  });
+
+
+  // Observe elements as they enter the screen.
+
+  const revealObserver = new IntersectionObserver(
+
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          // Animate each element only once.
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    }
+
+  );
+
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
+
+}
